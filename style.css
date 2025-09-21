@@ -1,0 +1,597 @@
+/* Basic rough pirate site styling - intentionally amateur looking */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: #fff;
+    min-height: 100vh;
+    padding: 10px;
+}
+
+/* Mobile first approach */
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 1000px;
+        padding: 0 20px;
+    }
+}
+
+/* Rough header */
+.pirate-header {
+    background: #330000;
+    border: 2px solid #ff6600;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.logo h1 {
+    color: #ff6600;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+@media (min-width: 768px) {
+    .logo h1 {
+        font-size: 32px;
+    }
+}
+
+.tagline {
+    color: #ffaa44;
+    font-size: 12px;
+    font-style: italic;
+}
+
+nav {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+nav a {
+    color: #ffcc66;
+    text-decoration: underline;
+    font-size: 14px;
+    padding: 5px;
+    border: 1px solid #666;
+    background: #222;
+}
+
+nav a:hover {
+    background: #ff6600;
+    color: #fff;
+}
+
+/* Warning banner - classic sketchy site style */
+.warning-banner {
+    background: #cc0000;
+    color: #fff;
+    padding: 10px;
+    margin: 15px 0;
+    text-align: center;
+    font-weight: bold;
+    border: 3px dashed #ffff00;
+    animation: blink 2s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.7; }
+}
+
+/* Main video section */
+.featured-video {
+    margin: 20px 0;
+}
+
+.featured-video h2 {
+    color: #ff6600;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+@media (min-width: 768px) {
+    .featured-video h2 {
+        font-size: 28px;
+    }
+}
+
+.video-container {
+    background: #222;
+    border: 2px solid #ff6600;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.video-placeholder {
+    text-align: center;
+    padding: 30px 15px;
+    background: #333;
+    border: 1px dashed #ff6600;
+}
+
+.video-placeholder i {
+    font-size: 40px;
+    color: #ff6600;
+    margin-bottom: 15px;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .video-placeholder i {
+        font-size: 60px;
+    }
+}
+
+.video-placeholder h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #ffcc66;
+}
+
+@media (min-width: 768px) {
+    .video-placeholder h3 {
+        font-size: 22px;
+    }
+}
+
+/* Rough button styles */
+.play-btn {
+    background: #ff6600;
+    color: #fff;
+    border: 2px solid #cc4400;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 10px 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+    .play-btn {
+        font-size: 16px;
+        padding: 12px 25px;
+    }
+}
+
+.play-btn:hover {
+    background: #cc4400;
+}
+
+.fake-download-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.download-btn {
+    background: #00aa00;
+    color: #fff;
+    border: 2px solid #006600;
+    padding: 8px 15px;
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+    .download-btn {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+
+.download-btn:hover {
+    background: #006600;
+}
+
+/* Video grid - simplified */
+.video-suggestions {
+    margin: 30px 0;
+}
+
+.video-suggestions h3 {
+    color: #ff6600;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+    .video-suggestions h3 {
+        font-size: 24px;
+    }
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+@media (min-width: 768px) {
+    .video-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+}
+
+.video-card {
+    background: #222;
+    border: 1px solid #ff6600;
+    padding: 15px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.video-card:hover {
+    background: #333;
+    border-color: #ffaa44;
+}
+
+.thumbnail {
+    font-size: 30px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .thumbnail {
+        font-size: 40px;
+    }
+}
+
+.video-card h4 {
+    color: #ffcc66;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+@media (min-width: 768px) {
+    .video-card h4 {
+        font-size: 14px;
+    }
+}
+
+.video-card p {
+    color: #aaa;
+    font-size: 10px;
+}
+
+@media (min-width: 768px) {
+    .video-card p {
+        font-size: 12px;
+    }
+}
+
+/* Popup styles - rougher */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.popup {
+    background: #222;
+    border: 3px solid #ff6600;
+    width: 100%;
+    max-width: 400px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+    .popup {
+        max-width: 500px;
+    }
+}
+
+.popup-header {
+    background: #ff6600;
+    color: #fff;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    .popup-header {
+        font-size: 16px;
+        padding: 15px 20px;
+    }
+}
+
+.popup-header.danger {
+    background: #cc0000;
+    animation: shake 0.5s infinite;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    75% { transform: translateX(2px); }
+}
+
+.popup-header.premium {
+    background: #ffd700;
+    color: #000;
+}
+
+.close-popup {
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+@media (min-width: 768px) {
+    .close-popup {
+        font-size: 24px;
+    }
+}
+
+.close-popup:hover {
+    color: #ffff00;
+}
+
+.popup-content {
+    padding: 20px 15px;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .popup-content {
+        padding: 25px 20px;
+    }
+}
+
+.popup-content p {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    .popup-content p {
+        font-size: 16px;
+    }
+}
+
+/* Button styles - rough */
+.danger-btn {
+    background: #cc0000;
+    color: #fff;
+    border: 2px solid #990000;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(204, 0, 0, 0.7); }
+    70% { box-shadow: 0 0 0 5px rgba(204, 0, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(204, 0, 0, 0); }
+}
+
+.premium-btn {
+    background: #ffd700;
+    color: #000;
+    border: 2px solid #ccaa00;
+    padding: 12px 25px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+    .premium-btn {
+        font-size: 16px;
+        padding: 15px 30px;
+    }
+}
+
+.cancel-btn {
+    background: #666;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 6px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    margin: 8px;
+}
+
+.verify-btn, .success-btn {
+    background: #00aa00;
+    color: #fff;
+    border: 2px solid #006600;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Verification styles - simplified */
+.verification-popup {
+    max-width: 90%;
+}
+
+@media (min-width: 768px) {
+    .verification-popup {
+        max-width: 550px;
+    }
+}
+
+.captcha-box {
+    background: #333;
+    padding: 15px;
+    margin: 15px 0;
+    border: 1px solid #666;
+}
+
+.captcha-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 15px 0;
+}
+
+.captcha-image {
+    width: 60px;
+    height: 60px;
+    background: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+@media (min-width: 768px) {
+    .captcha-image {
+        width: 80px;
+        height: 80px;
+        font-size: 30px;
+    }
+}
+
+.captcha-image:hover {
+    border-color: #ff6600;
+}
+
+.captcha-image.selected {
+    border-color: #00aa00;
+    background: rgba(0, 170, 0, 0.2);
+}
+
+.loading-bar {
+    width: 100%;
+    height: 15px;
+    background: #333;
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+.loading-progress {
+    height: 100%;
+    background: #00aa00;
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+/* Footer - simple */
+.pirate-footer {
+    background: #330000;
+    border-top: 2px solid #ff6600;
+    padding: 20px;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 12px;
+}
+
+@media (min-width: 768px) {
+    .pirate-footer {
+        font-size: 14px;
+    }
+}
+
+.footer-links {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #ffcc66;
+    text-decoration: underline;
+    font-size: 11px;
+}
+
+@media (min-width: 768px) {
+    .footer-links a {
+        font-size: 13px;
+    }
+}
+
+.footer-links a:hover {
+    color: #ff6600;
+}
+
+/* Utility classes */
+.hidden {
+    display: none !important;
+}
+
+/* Make it look more amateur on desktop */
+@media (min-width: 768px) {
+    body {
+        background: #000 url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><rect width="20" height="20" fill="%23111"/><circle cx="10" cy="10" r="1" fill="%23333"/></svg>');
+    }
+    
+    .pirate-header {
+        transform: rotate(-0.5deg);
+    }
+    
+    .video-container {
+        transform: rotate(0.3deg);
+    }
+    
+    .popup {
+        transform: rotate(-0.2deg);
+    }
+}
+
+/* Cursor effects */
+.skull-cursor {
+    cursor: crosshair;
+}
+
+@media (min-width: 768px) {
+    .download-btn:hover {
+        transform: scale(1.05) rotate(-1deg);
+    }
+    
+    .video-card:hover {
+        transform: rotate(0.5deg);
+    }
+}

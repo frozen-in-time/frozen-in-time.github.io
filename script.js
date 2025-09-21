@@ -19,11 +19,11 @@ function randomPopup() {
 // Fake virus scan
 function fakeVirusScan() {
     const scanBtn = event.target;
-    scanBtn.innerHTML = '🔄 Scanning...';
+    scanBtn.innerHTML = '🔄 Optimizing...';
     scanBtn.disabled = true;
     
     setTimeout(() => {
-        scanBtn.innerHTML = '✅ Clean!';
+        scanBtn.innerHTML = '✅ Enhanced!';
         setTimeout(() => {
             closePopup('virus-warning');
             // Show another popup because why not
@@ -34,7 +34,7 @@ function fakeVirusScan() {
 
 // Fake premium upgrade
 function fakePremium() {
-    alert('💳 Payment failed! Your card was declined. Try our FREE trial instead! 😉');
+    alert('💳 Payment system temporarily down! Try our free trial instead! 🎨');
     closePopup('subscription-popup');
     setTimeout(() => showPopup('human-verification'), 500);
 }
@@ -42,11 +42,11 @@ function fakePremium() {
 // Fake download
 function fakeDownload() {
     const responses = [
-        "🚫 Download limit reached! Upgrade to Premium for unlimited downloads!",
+        "🚫 Download requires patron membership! Support our artists for unlimited access!",
         "⚠️ Suspicious activity detected! Please verify you're human first.",
-        "💰 This content requires Premium membership. Upgrade now for only $4.99!",
-        "🤖 Bot detected! Complete human verification to continue.",
-        "📱 Download our app for faster downloads! (Click here to install virus... I mean app!)"
+        "💰 This content requires patron support. Join for only ¥499!",
+        "🤖 Bot detected! Complete verification to access our archive.",
+        "📱 Download our gallery app for better viewing! (Coming soon to App Store!)"
     ];
     
     const response = responses[Math.floor(Math.random() * responses.length)];
@@ -67,19 +67,19 @@ function showVerification() {
 
 function generateCaptcha() {
     const captchaContainer = document.getElementById('captcha-images');
-    const targets = ['pirates', 'skulls', 'ships', 'treasure', 'parrots', 'swords'];
+    const targets = ['art supplies', 'brushes', 'canvases', 'sculptures', 'galleries', 'easels'];
     const currentTarget = targets[Math.floor(Math.random() * targets.length)];
     
     document.getElementById('captcha-target').textContent = currentTarget;
     
-    const images = ['🏴‍☠️', '💀', '⚔️', '🗡️', '💎', '🦜', '⚓', '🏴', '💰', '🔫', '👑', '🌊'];
+    const images = ['�', '�️', '🖼️', '🎭', '🏛️', '✏️', '📐', '🖊️', '�', '�', '�', '📚'];
     const correctImages = {
-        'pirates': ['🏴‍☠️', '🏴'],
-        'skulls': ['💀'],
-        'ships': ['⚓', '🌊'],
-        'treasure': ['💎', '💰', '👑'],
-        'parrots': ['🦜'],
-        'swords': ['⚔️', '🗡️', '🔫']
+        'art supplies': ['�', '🖌️', '✏️', '📐'],
+        'brushes': ['🖌️', '�️'],
+        'canvases': ['🖼️'],
+        'sculptures': ['🎭'],
+        'galleries': ['🏛️', '🖼️'],
+        'easels': ['🎨', '�️']
     };
     
     captchaContainer.innerHTML = '';
@@ -118,13 +118,13 @@ function nextVerificationStep() {
     const statusText = document.getElementById('verification-status');
     
     const loadingSteps = [
-        'Checking browser fingerprint...',
-        'Analyzing mouse movements...',
-        'Validating IP address...',
-        'Detecting bots...',
-        'Confirming humanity...',
-        'Almost done...',
-        'Verification complete!'
+        'Analyzing aesthetic preferences...',
+        'Checking artistic background...',
+        'Validating gallery access...',
+        'Detecting art appreciation level...',
+        'Confirming human creativity...',
+        'Almost ready...',
+        'Welcome to our gallery!'
     ];
     
     let currentStep = 0;
@@ -184,13 +184,16 @@ function loadVideo() {
         iframe.src = "https://www.youtube.com/embed/dQw4w9WGXcQ?autoplay=1&mute=1";
         
         // Update video info
-        document.querySelector('.video-info h3').textContent = 'Now Playing: Sample Video';
+        document.querySelector('.video-info h3').textContent = 'Now Viewing: "Time Fragments"';
         document.querySelector('.video-info p').innerHTML = `
-            <strong>For your own video hosting:</strong><br>
-            • YouTube (Unlisted) - Free, easy<br>
-            • Vimeo - Professional<br>
-            • Self-hosted MP4 files<br>
-            <br><em>Replace iframe src in script.js!</em>
+            <strong>About this piece:</strong><br>
+            Digital video installation exploring temporal displacement<br>
+            Part of "Frozen In Time" exhibition series<br>
+            <br><strong>Video hosting for artists:</strong><br>
+            • Vimeo (Best for art) - Professional presentation<br>
+            • YouTube (Unlisted) - Wide accessibility<br>
+            • Self-hosted - Full control<br>
+            <br><em>Replace with your artwork URL in script.js!</em>
         `;
     }, 2000);
 }
@@ -216,11 +219,11 @@ function startAnnoyingBehaviors() {
     
     // Fake loading messages
     const fakeMessages = [
-        "👁️ Someone is watching...",
-        "📡 Connecting to secret server...",
-        "🔓 Bypassing copyright protection...",
-        "🏴‍☠️ Sailing the seven seas...",
-        "💀 Summoning digital ghosts..."
+        "🎨 Preparing digital canvas...",
+        "�️ Loading art assets...",
+        "🏛️ Connecting to Yokohama servers...",
+        "� Optimizing viewing experience...",
+        "✨ Channeling creative energy..."
     ];
     
     // Show random messages in console
@@ -248,11 +251,11 @@ function addPirateEffects() {
         }
     }, 5000);
     
-    // Random pirate sounds (text-based)
-    const pirateSounds = ['Arrr!', 'Ahoy!', 'Shiver me timbers!', 'Yo ho ho!'];
+    // Random art sounds (text-based)
+    const artSounds = ['✨ Inspiration!', '🎨 Create!', 'Beautiful!', '🖌️ Art flows!'];
     window.addEventListener('click', () => {
         if (Math.random() < 0.1) { // 10% chance
-            const sound = pirateSounds[Math.floor(Math.random() * pirateSounds.length)];
+            const sound = artSounds[Math.floor(Math.random() * artSounds.length)];
             const soundDiv = document.createElement('div');
             soundDiv.textContent = sound;
             soundDiv.style.cssText = `
@@ -260,9 +263,8 @@ function addPirateEffects() {
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                font-size: 2rem;
+                font-size: 1.5rem;
                 color: #ff6600;
-                font-family: 'Creepster', cursive;
                 z-index: 9999;
                 pointer-events: none;
                 animation: fadeOut 2s forwards;
@@ -288,7 +290,7 @@ document.head.appendChild(style);
 
 // Initialize when page loads
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('%c🏴‍☠️ Welcome to the most legitimate video site on the seven seas! 🏴‍☠️', 
+    console.log('%c� Welcome to Frozen In Time - Art Center Yokohama! �', 
         'color: #ff6600; font-size: 20px; font-weight: bold;');
     
     // Start annoying behaviors after 5 seconds
@@ -316,13 +318,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Prevent right-click (classic pirate site move)
     document.addEventListener('contextmenu', (e) => {
         e.preventDefault();
-        alert('🚫 Right-click disabled for your protection! (Not really, just being annoying)');
+        alert('🚫 Right-click disabled to protect our digital artworks! (Just being artistic)');
     });
     
     // Fake ad blocker detection
     setTimeout(() => {
         if (Math.random() < 0.4) {
-            alert('🛡️ Ad blocker detected! Please disable to support our totally legal content!');
+            alert('🛡️ Ad blocker detected! Please disable to support our artists!');
         }
     }, 10000);
 });

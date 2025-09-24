@@ -383,6 +383,7 @@ function startTimeVerificationLoading() {
 function enterSite() {
     verified = true;
     document.getElementById('language-select-popup').classList.add('hidden');
+    // Main content is already visible, just ensure it stays visible
     document.getElementById('main-content').classList.remove('hidden');
     document.body.style.overflow = 'auto';
     
@@ -423,10 +424,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const opt = document.querySelector(`.language-option[data-lang="${selectedLanguage}"]`);
     if (opt) opt.classList.add('selected');
 
-    // Always show popup; could be enhanced to skip language step if previously verified
+    // Show main content in background and overlay popup (mobile-friendly approach)
+    document.getElementById('main-content').classList.remove('hidden');
     document.getElementById('language-select-popup').classList.remove('hidden');
-    document.getElementById('main-content').classList.add('hidden');
-    document.body.style.overflow = 'hidden';
+    // Don't disable body scroll - let content be accessible in background
+    // document.body.style.overflow = 'hidden';
 
     console.log('%c� Welcome to Frozen In Time - Art Center Yokohama! �', 
         'color: #ff6600; font-size: 20px; font-weight: bold;');
@@ -452,6 +454,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    
+    // Prevent right-click (classic art gallery protection)
+    document.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        alert('🚫 Right-click disabled to protect our digital artworks! (Just being artistic)');
+    });
+    
+    // Fake ad blocker detection - DISABLED
+    // setTimeout(() => {
+    //     if (Math.random() < 0.4) {
+    //         alert('🛡️ Ad blocker detected! Please disable to support our artists!');
+    //     }
+    // }, 10000);
+    
+    // Initialize floating corner elements
+    initializeFloatingElements();
 });
 
 function verifyTimeAnswer(answer) {

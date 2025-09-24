@@ -1,3 +1,181 @@
+// --- Language and Verification Gating ---
+const translations = {
+    en: {
+        headerText: "🤖 Time Verification Required",
+        languageInstruction: "First, select your language by clicking on it:",
+        verifyQuestion: "Select all items that relate to time:",
+        loadingText: "Verifying your understanding of time...",
+        statusText: "Analyzing temporal perception...",
+        successText: "✅ Welcome! Come for what you want",
+        enterBtn: "Enter Gallery",
+        verifyBtn: "Verify Selection",
+        errorText: "Please select more items - everything relates to time in some way!"
+    },
+    ja: {
+        headerText: "🤖 時間認証が必要です",
+        languageInstruction: "まず、言語をクリックして選択してください：",
+        verifyQuestion: "時間に関係するものをすべて選択してください：",
+        loadingText: "時間の理解を検証中...",
+        statusText: "時間的認識を分析中...",
+        successText: "✅ お気に入りなコンテンツへどうぞ",
+        enterBtn: "入る",
+        verifyBtn: "選択を確認",
+        errorText: "もっと選択してください - すべてが何らかの形で時間に関係しています！"
+    }
+};
+
+let selectedLanguage = "en";
+let verified = false;
+
+function setLanguage(lang) {
+    selectedLanguage = lang;
+    const t = translations[lang];
+    
+    // Update all text elements
+    document.getElementById('verify-header-text').textContent = t.headerText;
+    document.getElementById('language-instruction').textContent = t.languageInstruction;
+    document.getElementById('verify-question-text').textContent = t.verifyQuestion;
+    document.getElementById('loading-text').textContent = t.loadingText;
+    document.getElementById('time-verification-status').textContent = t.statusText;
+    document.getElementById('success-text').textContent = t.successText;
+    document.getElementById('enter-btn').textContent = t.enterBtn;
+    document.getElementById('time-verify-btn').textContent = t.verifyBtn;
+}
+
+function selectLanguage(lang) {
+    // Remove selection from all language options
+    document.querySelectorAll('.language-option').forEach(el => {
+        el.classList.remove('selected');
+    });
+    
+    // Select the clicked language
+    document.querySelector(`[data-lang="${lang}"]`).classList.add('selected');
+    
+    // Set language and proceed to time verification
+    setLanguage(lang);
+    
+    setTimeout(() => {
+        document.getElementById('language-step').classList.add('hidden');
+        document.getElementById('time-verification-step').classList.remove('hidden');
+        generateTimeCaptcha();
+    }, 1000);
+}
+
+function generateTimeCaptcha() {
+    const captchaContainer = document.getElementById('time-captcha-images');
+    
+    // All items are actually time-related in philosophical/artistic sense
+    const timeItems = [
+        { emoji: '⏰', name: 'clock' },
+        { emoji: '🌅', name: 'sunrise' },
+        { emoji: '🍂', name: 'autumn' },
+        { emoji: '❄️', name: 'frozen' },
+        { emoji: '📚', name: 'memory' },
+        { emoji: '🌊', name: 'flow' },
+        { emoji: '🎭', name: 'performance' },
+        { emoji: '📱', name: 'moment' },
+        { emoji: '🕯️', name: 'duration' }
+    ];
+    
+    captchaContainer.innerHTML = '';
+    
+    // Generate 9 images - all are "correct" since everything relates to time
+    for (let i = 0; i < 9; i++) {
+        const item = timeItems[i];
+        const imageDiv = document.createElement('div');
+        imageDiv.className = 'captcha-image';
+        imageDiv.textContent = item.emoji;
+        imageDiv.dataset.correct = 'true';  // All items are correct!
+        imageDiv.dataset.name = item.name;
+        
+        imageDiv.onclick = () => toggleCaptchaSelection(imageDiv);
+        captchaContainer.appendChild(imageDiv);
+    }
+}
+
+function verifyTimeSelection() {
+    const selectedItems = document.querySelectorAll('#time-captcha-images .captcha-image.selected');
+    const totalItems = document.querySelectorAll('#time-captcha-images .captcha-image').length;
+    
+    if (selectedItems.length === totalItems) {
+        // All items selected - correct!
+        document.getElementById('time-verification-step').classList.add('hidden');
+        document.getElementById('time-verification-loading').classList.remove('hidden');
+        
+        // Start loading animation
+        startTimeVerificationLoading();
+    } else {
+        // Not all items selected
+        alert(translations[selectedLanguage].errorText);
+    }
+}
+
+function startTimeVerificationLoading() {
+    const progressBar = document.getElementById('time-verification-progress');
+    const statusText = document.getElementById('time-verification-status');
+    
+    const loadingSteps = selectedLanguage === 'en' ? [
+        'Analyzing temporal perception...',
+        'Checking understanding of time...',
+        'Validating temporal awareness...',
+        'Confirming time consciousness...',
+        'Processing temporal data...',
+        'Almost complete...',
+        'Time verification successful!'
+    ] : [
+        '時間的認識を分析中...',
+        '時間の理解を確認中...',
+        '時間意識を検証中...',
+        '時間認識を確認中...',
+        '時間データを処理中...',
+        'もうすぐ完了...',
+        '時間認証成功！'
+    ];
+    
+    let currentStep = 0;
+    let progress = 0;
+    
+    const interval = setInterval(() => {
+        progress += Math.random() * 15 + 10;
+        if (progress > 100) progress = 100;
+        
+        progressBar.style.width = progress + '%';
+        
+        if (currentStep < loadingSteps.length - 1) {
+            statusText.textContent = loadingSteps[currentStep];
+            currentStep++;
+        }
+        
+        if (progress >= 100) {
+            clearInterval(interval);
+            setTimeout(() => {
+                document.getElementById('time-verification-loading').classList.add('hidden');
+                document.getElementById('time-verification-complete').classList.remove('hidden');
+            }, 500);
+        }
+    }, 800);
+}
+
+function enterSite() {
+    verified = true;
+    document.getElementById('language-select-popup').classList.add('hidden');
+    document.getElementById('main-content').classList.remove('hidden');
+    document.body.style.overflow = 'auto';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Show language/verify popup first
+    document.getElementById('language-select-popup').classList.remove('hidden');
+    document.getElementById('main-content').classList.add('hidden');
+    document.body.style.overflow = 'hidden';
+    setLanguage(selectedLanguage);
+});
+
+function verifyTimeAnswer(answer) {
+    // This function is now replaced by the new verification system
+    console.log('Old verification function called');
+}
+
 // Popup management
 function showPopup(popupId) {
     document.getElementById(popupId).classList.remove('hidden');
@@ -19,11 +197,11 @@ function randomPopup() {
 // Fake virus scan
 function fakeVirusScan() {
     const scanBtn = event.target;
-    scanBtn.innerHTML = '🔄 Optimizing...';
+    scanBtn.innerHTML = '❄️ Synchronizing...';
     scanBtn.disabled = true;
     
     setTimeout(() => {
-        scanBtn.innerHTML = '✅ Enhanced!';
+        scanBtn.innerHTML = '⏰ Time Synced!';
         setTimeout(() => {
             closePopup('virus-warning');
             // Show another popup because why not
@@ -34,7 +212,7 @@ function fakeVirusScan() {
 
 // Fake premium upgrade
 function fakePremium() {
-    alert('💳 Payment system temporarily down! Try our free trial instead! 🎨');
+    alert('⏰ Time payment system temporarily frozen! Try our free trial instead! ❄️');
     closePopup('subscription-popup');
     setTimeout(() => showPopup('human-verification'), 500);
 }
@@ -233,12 +411,12 @@ function startAnnoyingBehaviors() {
     }, 10000);
 }
 
-// Easter eggs and extra pirate behavior
-function addPirateEffects() {
-    // Change cursor to skull on certain elements
-    const pirateElements = document.querySelectorAll('.download-btn, .play-btn, .video-card');
-    pirateElements.forEach(el => {
-        el.classList.add('skull-cursor');
+// Easter eggs and extra frozen time effects
+function addFrozenEffects() {
+    // Change cursor to snowflake on certain elements
+    const frozenElements = document.querySelectorAll('.download-btn, .play-btn, .video-card');
+    frozenElements.forEach(el => {
+        el.classList.add('frozen-cursor');
     });
     
     // Occasional screen shake
@@ -296,8 +474,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Start annoying behaviors after 5 seconds
     setTimeout(startAnnoyingBehaviors, 5000);
     
-    // Add pirate effects
-    addPirateEffects();
+    // Add frozen effects
+    addFrozenEffects();
     
     // Show welcome popup after 3 seconds
     setTimeout(() => {
@@ -315,7 +493,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // Prevent right-click (classic pirate site move)
+    // Prevent right-click (classic art gallery protection)
     document.addEventListener('contextmenu', (e) => {
         e.preventDefault();
         alert('🚫 Right-click disabled to protect our digital artworks! (Just being artistic)');

@@ -1,4 +1,4 @@
-/* Basic rough pirate site styling - intentionally amateur looking */
+/* Basic rough art site styling - intentionally amateur looking */
 * {
     margin: 0;
     padding: 0;
@@ -459,6 +459,29 @@ nav a:hover {
     }
 }
 
+.verification-step {
+    display: block;
+}
+
+.verification-step.hidden {
+    display: none;
+}
+
+.language-option {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.language-option:hover {
+    border-color: #ff6600 !important;
+    transform: scale(1.05);
+}
+
+.language-option.selected {
+    border-color: #00aa00 !important;
+    background: rgba(0, 170, 0, 0.2) !important;
+}
+
 .captcha-box {
     background: #333;
     padding: 15px;
@@ -582,7 +605,7 @@ nav a:hover {
 }
 
 /* Cursor effects */
-.skull-cursor {
+.frozen-cursor {
     cursor: crosshair;
 }
 

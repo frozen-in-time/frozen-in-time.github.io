@@ -511,35 +511,83 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeFloatingElements();
 });
 
-// Floating corner elements functions
+// Floating corner elements functions - Grid stacking system
 function initializeFloatingElements() {
     const elements = ['floating-corner-1', 'floating-corner-2', 'floating-corner-3'];
-    let currentAdIndex = 0;
+    let adsVisible = [];
+    let cycleIndex = 0;
     
-    // Show first ad after delay
+    // Start with first ad
     setTimeout(() => {
-        showNextAd(elements, currentAdIndex);
-    }, 5000);
-    
-    // Cycle through ads every 15-20 seconds
-    setInterval(() => {
-        hideCurrentAd(elements[currentAdIndex]);
-        currentAdIndex = (currentAdIndex + 1) % elements.length;
+        showAd('floating-corner-1');
+        adsVisible.push('floating-corner-1');
+        
+        // Add second ad on top after 8 seconds
         setTimeout(() => {
-            showNextAd(elements, currentAdIndex);
-        }, 2000); // 2 second gap between ads
-    }, 18000);
+            showAd('floating-corner-2');
+            adsVisible.push('floating-corner-2');
+            
+            // Start cycling every 15 seconds
+            setInterval(() => {
+                cycleAds(elements, adsVisible, cycleIndex);
+                cycleIndex = (cycleIndex + 1) % elements.length;
+            }, 15000);
+            
+        }, 8000);
+    }, 5000);
     
     makeFloatingElementsInteractive();
 }
 
-function showNextAd(elements, index) {
-    const element = document.getElementById(elements[index]);
+function showAd(elementId) {
+    const element = document.getElementById(elementId);
     element.style.display = 'block';
     element.style.animation = 'slideInLeft 0.8s ease-out';
 }
 
-function hideCurrentAd(elementId) {
+function cycleAds(allElements, visibleAds, cycleIndex) {
+    if (visibleAds.length === 0) return;
+    
+    // Remove the bottom ad (first in visible array)
+    const bottomAd = visibleAds.shift();
+    hideAd(bottomAd);
+    
+    // If there's a top ad, make it drop down
+    if (visibleAds.length > 0) {
+        const topAd = visibleAds[0];
+        const topElement = document.getElementById(topAd);
+        topElement.style.animation = 'dropDown 0.6s ease-out';
+        
+        // Update its position to bottom after animation
+        setTimeout(() => {
+            if (topAd === 'floating-corner-2') {
+                topElement.style.bottom = '20px';
+            }
+        }, 600);
+    }
+    
+    // Add next ad on top
+    setTimeout(() => {
+        const nextAdIndex = (cycleIndex + 1) % allElements.length;
+        const nextAd = allElements[nextAdIndex];
+        
+        if (nextAd === 'floating-corner-2') {
+            // Reset position for corner-2 when it comes back
+            document.getElementById(nextAd).style.bottom = '280px';
+        }
+        
+        showAd(nextAd);
+        visibleAds.push(nextAd);
+        
+        // Keep max 2 ads visible
+        if (visibleAds.length > 2) {
+            const oldAd = visibleAds.shift();
+            hideAd(oldAd);
+        }
+    }, 1000);
+}
+
+function hideAd(elementId) {
     const element = document.getElementById(elementId);
     if (element && element.style.display !== 'none') {
         element.style.animation = 'slideOutLeft 0.5s ease-in';
@@ -547,6 +595,10 @@ function hideCurrentAd(elementId) {
             element.style.display = 'none';
         }, 500);
     }
+}
+
+function hideCurrentAd(elementId) {
+    hideAd(elementId);
 }
 
 function closeFloatingElement(elementId) {

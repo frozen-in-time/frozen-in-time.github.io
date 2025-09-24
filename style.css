@@ -655,7 +655,7 @@ nav a:hover {
     font-weight: bold;
 }
 
-/* All positioned in bottom-left corner only */
+/* Grid positioning - stacked in bottom-left corner */
 #floating-corner-1 {
     bottom: 20px;
     left: 20px;
@@ -663,7 +663,7 @@ nav a:hover {
 }
 
 #floating-corner-2 {
-    bottom: 20px;
+    bottom: 280px; /* Above the first ad */
     left: 20px;
     animation: slideInLeft 0.8s ease-out;
 }
@@ -696,6 +696,15 @@ nav a:hover {
     }
 }
 
+@keyframes dropDown {
+    from { 
+        transform: translateY(-260px);
+    }
+    to { 
+        transform: translateY(0);
+    }
+}
+
 @keyframes slideInRight {
     from { 
         transform: translateX(100%);
@@ -714,8 +723,16 @@ nav a:hover {
         height: 200px;
     }
     
-    #floating-corner-1,
-    #floating-corner-2, 
+    #floating-corner-1 {
+        bottom: 10px;
+        left: 10px;
+    }
+    
+    #floating-corner-2 {
+        bottom: 220px; /* Adjusted for smaller mobile ads */
+        left: 10px;
+    }
+    
     #floating-corner-3 {
         bottom: 10px;
         left: 10px;

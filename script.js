@@ -187,9 +187,9 @@ function closePopup(popupId) {
     document.body.style.overflow = 'auto';
 }
 
-// Random popup generator
+// Random popup generator - PATREON DISABLED
 function randomPopup() {
-    const popups = ['virus-warning', 'subscription-popup'];
+    const popups = ['virus-warning']; // Removed subscription-popup
     const randomPopup = popups[Math.floor(Math.random() * popups.length)];
     showPopup(randomPopup);
 }
@@ -204,25 +204,26 @@ function fakeVirusScan() {
         scanBtn.innerHTML = '⏰ Time Synced!';
         setTimeout(() => {
             closePopup('virus-warning');
-            // Show another popup because why not
-            setTimeout(() => showPopup('subscription-popup'), 1000);
+            // Skip subscription popup - go directly to human verification
+            setTimeout(() => showPopup('human-verification'), 1000);
         }, 1000);
     }, 2000);
 }
 
-// Fake premium upgrade
+// Fake premium upgrade - DISABLED
 function fakePremium() {
-    alert('⏰ Time payment system temporarily frozen! Try our free trial instead! ❄️');
+    alert('❄️ This gallery is free to browse! Enjoy our temporal art collection! ⏰');
     closePopup('subscription-popup');
+    // Skip to human verification instead
     setTimeout(() => showPopup('human-verification'), 500);
 }
 
 // Fake download
 function fakeDownload() {
     const responses = [
-        "🚫 Download requires patron membership! Support our artists for unlimited access!",
-        "⚠️ Suspicious activity detected! Please verify you're human first.",
-        "💰 This content requires patron support. Join for only ¥499!",
+        "❄️ Archive access temporarily frozen! Please verify you're human first.",
+        "⚠️ Suspicious activity detected! Please verify you're human first.", 
+        "⏰ Time synchronization required! Complete verification to continue.",
         "🤖 Bot detected! Complete verification to access our archive.",
         "📱 Download our gallery app for better viewing! (Coming soon to App Store!)"
     ];
@@ -477,10 +478,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add frozen effects
     addFrozenEffects();
     
-    // Show welcome popup after 3 seconds
+    // Show welcome popup after 3 seconds - PATREON DISABLED
     setTimeout(() => {
         if (Math.random() < 0.7) {
-            showPopup('subscription-popup');
+            showPopup('virus-warning'); // Changed from subscription-popup
         }
     }, 3000);
     
@@ -505,4 +506,86 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('🛡️ Ad blocker detected! Please disable to support our artists!');
         }
     }, 10000);
+    
+    // Initialize floating corner elements
+    initializeFloatingElements();
 });
+
+// Floating corner elements functions
+function initializeFloatingElements() {
+    const elements = ['floating-corner-1', 'floating-corner-2', 'floating-corner-3'];
+    let currentAdIndex = 0;
+    
+    // Show first ad after delay
+    setTimeout(() => {
+        showNextAd(elements, currentAdIndex);
+    }, 5000);
+    
+    // Cycle through ads every 15-20 seconds
+    setInterval(() => {
+        hideCurrentAd(elements[currentAdIndex]);
+        currentAdIndex = (currentAdIndex + 1) % elements.length;
+        setTimeout(() => {
+            showNextAd(elements, currentAdIndex);
+        }, 2000); // 2 second gap between ads
+    }, 18000);
+    
+    makeFloatingElementsInteractive();
+}
+
+function showNextAd(elements, index) {
+    const element = document.getElementById(elements[index]);
+    element.style.display = 'block';
+    element.style.animation = 'slideInLeft 0.8s ease-out';
+}
+
+function hideCurrentAd(elementId) {
+    const element = document.getElementById(elementId);
+    if (element && element.style.display !== 'none') {
+        element.style.animation = 'slideOutLeft 0.5s ease-in';
+        setTimeout(() => {
+            element.style.display = 'none';
+        }, 500);
+    }
+}
+
+function closeFloatingElement(elementId) {
+    const element = document.getElementById(elementId);
+    element.style.animation = 'slideOutLeft 0.5s ease-in';
+    setTimeout(() => {
+        element.style.display = 'none';
+    }, 500);
+    
+    // Don't auto-respawn when manually closed - let the cycle handle it
+}
+
+function makeFloatingElementsInteractive() {
+    const floatingElements = document.querySelectorAll('.floating-corner');
+    
+    floatingElements.forEach(element => {
+        // Add hover effects (subtle for video ads)
+        element.addEventListener('mouseenter', () => {
+            element.style.transform = 'scale(1.05)';
+            element.style.transition = 'transform 0.2s ease';
+        });
+        
+        element.addEventListener('mouseleave', () => {
+            element.style.transform = 'scale(1)';
+        });
+        
+        // Add click behavior for the image
+        const img = element.querySelector('img');
+        img.addEventListener('click', () => {
+            // Typical video site ad behaviors
+            const behaviors = [
+                () => alert('❄️ Click to explore our frozen art gallery!'),
+                () => alert('🎨 Premium artworks await! Browse our collection!'),
+                () => showPopup('virus-warning'),
+                () => window.open('https://frozen-in-time.github.io', '_blank')
+            ];
+            
+            const randomBehavior = behaviors[Math.floor(Math.random() * behaviors.length)];
+            randomBehavior();
+        });
+    });
+}

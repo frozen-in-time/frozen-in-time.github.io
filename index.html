@@ -3,11 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Frozen In Time - Art Center Yokohama</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+
+    <!-- PATREON POPUP DISABLED
+    <div id="subscription-popup" class="popup-overlay hidden">
+        <div class="popup">
+            <div class="popup-header premium">
+                <i class="fas fa-microphone"></i>
+                <span>� temp_title MEMBERSHIP ❄️</span>
+                <span class="close-popup" onclick="closePopup('subscription-popup')">&times;</span>
+            </div>
+            <div class="popup-content">
+                <p>Support our time-frozen artists with exclusive access!</p>
+                <p><strike>¥9,999/month</strike> <strong>Only ¥499/month!</strong></p>
+                <button class="premium-btn" onclick="fakePremium()">⏰ BECOME PATRON</button>
+                <small>Support temporal art in Yokohama</small>
+            </div>
+        </div>
+    </div>
+    END PATREON POPUP -->
+    
+    <!-- Annoying floating corner elements -->
+    <div id="floating-corner-1" class="floating-corner">
+        <img src="media/img/clocks.jpg" alt="Clocks" onclick="closeFloatingElement('floating-corner-1')">
+        <span class="close-floating">&times;</span>
+    </div>
+    <div id="floating-corner-2" class="floating-corner">
+        <img src="media/img/optimized1.gif" alt="Animation" onclick="closeFloatingElement('floating-corner-2')">
+        <span class="close-floating">&times;</span>
+    </div>
+    <div id="floating-corner-3" class="floating-corner">
+        <img src="media/img/universe.gif" alt="Universe" onclick="closeFloatingElement('floating-corner-3')">
+        <span class="close-floating">&times;</span>
+    </div>
     <div id="language-select-popup" class="popup-overlay">
         <div class="popup verification-popup">
             <div class="popup-header">
@@ -117,7 +149,7 @@
         <div class="container">
             <div class="logo">
                 <h1>❄️ Frozen In Time</h1>
-                <span class="tagline">Art Center Yokohama - Digital Archives</span>
+                <span class="tagline">Motoki Watanabe</span>
             </div>
             <nav>
                 <a href="#" onclick="randomPopup()">Statement</a>
@@ -139,7 +171,7 @@
                 <div class="video-container">
                     <div id="video-placeholder" class="video-placeholder">
                         <i class="fas fa-play-circle"></i>
-                        <h3>"temp_title" - Interactive Sound Installation</h3>
+                        <h3>"Frozen In Time" - Interactive Sound Installation</h3>
                         <p>Artist: [Your Name] | Duration: 12:34 | Year: 2024</p>
                         <button onclick="loadVideo()" class="play-btn">
                             <i class="fas fa-play"></i> VIEW ARTWORK
@@ -156,7 +188,7 @@
                     <div id="actual-video" class="hidden">
                         <iframe id="video-frame" width="100%" height="300" frameborder="0" allowfullscreen></iframe>
                         <div class="video-info">
-                            <h3>Now Viewing: "temp_title"</h3>
+                            <h3>Now Viewing: "Frozen In Time"</h3>
                             <p><strong>About this piece:</strong><br>
                             Interactive sound installation exploring temporal suspension<br>
                             Part of "Frozen In Time" exhibition series<br>

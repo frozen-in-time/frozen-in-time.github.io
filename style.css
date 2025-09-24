@@ -716,6 +716,33 @@ nav a:hover {
     }
 }
 
+/* Floating language toggle */
+.lang-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.75);
+    padding: 8px 10px;
+    display: flex;
+    gap: 6px;
+    border: 1px solid #555;
+    z-index: 12000;
+    font-family: inherit;
+}
+.lang-toggle button {
+    background: #222;
+    color: #fff;
+    border: 1px solid #666;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 12px;
+}
+.lang-toggle button:hover {
+    background: #ff6600;
+    border-color: #ff6600;
+}
+.lang-toggle.hidden { display: none; }
+
 /* Mobile responsive adjustments */
 @media (max-width: 768px) {
     .floating-corner {

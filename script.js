@@ -1,6 +1,11 @@
 // --- Language and Verification Gating ---
+// =======================================================================
+// TRANSLATION TABLE - EDIT THIS SECTION TO CHANGE ALL SITE TEXT
+// =======================================================================
 const translations = {
     en: {
+        // === VERIFICATION POPUP ===
+        pageTitle: "Frozen In Time - Art Center Yokohama",
         headerText: "🤖 Time Verification Required",
         languageInstruction: "First, select your language by clicking on it:",
         verifyQuestion: "Select all items that relate to time:",
@@ -9,9 +14,63 @@ const translations = {
         successText: "✅ Welcome! Come for what you want",
         enterBtn: "Enter Gallery",
         verifyBtn: "Verify Selection",
-        errorText: "Please select more items - everything relates to time in some way!"
+        errorText: "Please select more items - everything relates to time in some way!",
+        
+        // === MAIN PAGE CONTENT ===
+        warningBanner: "❄️ Warning: Temporal art archive. Content may freeze your perception of time. ⏰",
+        featuredTitle: "⏰ Featured Digital Art Piece",
+        artworkTitle: '"Frozen In Time" - Interactive Sound Installation',
+        artworkInfo: "Artist: [Your Name] | Duration: 12:34 | Year: 2024",
+        viewArtwork: "VIEW ARTWORK",
+        audioStatement: "AUDIO STATEMENT",
+        frozenVersion: "FROZEN VERSION",
+        
+        // === VIDEO INFO SECTION ===
+        nowViewing: 'Now Viewing: "Frozen In Time"',
+        aboutPiece: "About this piece:",
+        aboutDescription: "Interactive sound installation exploring temporal suspension\nPart of \"Frozen In Time\" exhibition series",
+        videoHosting: "Video hosting for artists:",
+        hostingOptions: "• Vimeo (Best for art) - Professional presentation\n• YouTube (Unlisted) - Wide accessibility\n• Self-hosted - Full control",
+        replaceNote: "Replace with your artwork URL in script.js!",
+        
+        // === RELATED WORKS SECTION ===
+        relatedWorks: "Related Works & Artists",
+        artistStatement: "Artist Statement",
+        aboutWork: "About the work",
+        artCenterHome: "Art Center Home", 
+        yokohamaLocation: "Yokohama location",
+        otherArtists: "Other Artists",
+        collaborativeWorks: "Collaborative works",
+        contactInfo: "Contact Info",
+        getInTouch: "Get in touch",
+        
+        // === NAVIGATION ===
+        navStatement: "Statement",
+        navArtists: "Artists", 
+        navGallery: "Gallery",
+        navContact: "Contact",
+        
+        // === POPUPS ===
+        virusWarningTitle: "❄️ TEMPORAL FREEZE DETECTED! ⏰",
+        virusWarningText: "Your time perception requires calibration!",
+        virusWarningButton: "⏰ SYNC TIME",
+        virusWarningCancel: "Maybe Later",
+        subscriptionTitle: "� temp_title MEMBERSHIP ❄️",
+        subscriptionText: "Support our time-frozen artists with exclusive access!",
+        subscriptionPrice: "¥9,999/month",
+        subscriptionDiscount: "Only ¥499/month!",
+        subscriptionButton: "⏰ BECOME PATRON",
+        subscriptionSupport: "Support temporal art in Yokohama",
+        humanVerificationTitle: "🤖 Human Verification Required",
+        humanVerificationText: "Please prove you're human to access our digital art archive:",
+        humanVerificationLoading: "Almost done! Verifying your artistic appreciation...",
+        humanVerificationSuccess: "✅ Welcome to our art community!",
+        humanVerifyBtn: "Verify",
+        humanEnterBtn: "Enter Gallery",
     },
     ja: {
+        // === VERIFICATION POPUP ===
+        pageTitle: "フローズン・イン・タイム - アートセンター横浜",
         headerText: "🤖 時間認証が必要です",
         languageInstruction: "まず、言語をクリックして選択してください：",
         verifyQuestion: "時間に関係するものをすべて選択してください：",
@@ -20,9 +79,62 @@ const translations = {
         successText: "✅ お気に入りなコンテンツへどうぞ",
         enterBtn: "入る",
         verifyBtn: "選択を確認",
-        errorText: "もっと選択してください - すべてが何らかの形で時間に関係しています！"
+        errorText: "もっと選択してください - すべてが何らかの形で時間に関係しています！",
+        
+        // === MAIN PAGE CONTENT ===
+        warningBanner: "❄️ 警告: 時間芸術アーカイブ。コンテンツは時間の知覚を凍結する可能性があります。⏰",
+        featuredTitle: "⏰ 注目のデジタルアート作品",
+        artworkTitle: '「Frozen In Time」- インタラクティブ音響インスタレーション',
+        artworkInfo: "アーティスト: [Your Name] | 長さ: 12:34 | 年: 2024",
+        viewArtwork: "作品を見る",
+        audioStatement: "音声ステートメント",
+        frozenVersion: "フローズンバージョン",
+        
+        // === VIDEO INFO SECTION ===
+        nowViewing: '現在視聴中: "Frozen In Time"',
+        aboutPiece: "この作品について:",
+        aboutDescription: '時間の停止を探求するインタラクティブ音響インスタレーション\n"Frozen In Time" 展示シリーズの一部',
+        videoHosting: "アーティストのための動画ホスティング:",
+        hostingOptions: "• Vimeo（アート向け）- プロフェッショナルな表示\n• YouTube（限定公開）- 幅広いアクセス\n• セルフホスト - 完全制御",
+        replaceNote: "script.jsであなたの作品URLに置き換えてください！",
+        
+        // === RELATED WORKS SECTION ===
+        relatedWorks: "関連作品とアーティスト",
+        artistStatement: "アーティストステートメント",
+        aboutWork: "作品について",
+        artCenterHome: "アートセンターホーム",
+        yokohamaLocation: "横浜の場所",
+        otherArtists: "他のアーティスト",
+        collaborativeWorks: "コラボレーション作品",
+        contactInfo: "連絡先",
+        getInTouch: "お問い合わせ",
+        
+        // === NAVIGATION ===
+        navStatement: "ステートメント",
+        navArtists: "アーティスト",
+        navGallery: "ギャラリー",
+        navContact: "連絡先",
+        
+        // === POPUPS ===
+        virusWarningTitle: "❄️ 時間凍結検出！ ⏰",
+        virusWarningText: "あなたの時間認識に調整が必要です！",
+        virusWarningButton: "⏰ 時間を同期",
+        virusWarningCancel: "後で",
+        subscriptionTitle: "� temp_title メンバーシップ ❄️",
+        subscriptionText: "時間凍結アーティストを独占アクセスでサポート！",
+        subscriptionPrice: "¥9,999/月",
+        subscriptionDiscount: "月額¥499のみ！",
+        subscriptionButton: "⏰ パトロンになる",
+        subscriptionSupport: "横浜の時間芸術をサポート",
+        humanVerificationTitle: "🤖 人間認証が必要です",
+        humanVerificationText: "デジタルアートアーカイブにアクセスするには人間であることを証明してください：",
+        humanVerificationLoading: "もうすぐ完了！芸術的鑑賞力を検証中...",
+        humanVerificationSuccess: "✅ アートコミュニティへようこそ！",
+        humanVerifyBtn: "確認",
+        humanEnterBtn: "ギャラリーに入る",
     }
 };
+// =======================================================================
 
 let selectedLanguage = "en";
 let verified = false;
@@ -30,8 +142,13 @@ let verified = false;
 function setLanguage(lang) {
     selectedLanguage = lang;
     const t = translations[lang];
+    // Persist selection
+    try { localStorage.setItem('fit_lang', lang); } catch(e) {}
+    // Update document language and title
+    document.documentElement.setAttribute('lang', lang);
+    if (t.pageTitle) document.title = t.pageTitle;
     
-    // Update all text elements
+    // Update verification popup elements
     document.getElementById('verify-header-text').textContent = t.headerText;
     document.getElementById('language-instruction').textContent = t.languageInstruction;
     document.getElementById('verify-question-text').textContent = t.verifyQuestion;
@@ -40,6 +157,108 @@ function setLanguage(lang) {
     document.getElementById('success-text').textContent = t.successText;
     document.getElementById('enter-btn').textContent = t.enterBtn;
     document.getElementById('time-verify-btn').textContent = t.verifyBtn;
+    
+    // Always update main content if present (safe even if hidden)
+    updateMainContentLanguage(t);
+}
+
+// Public API for post-entry language switching
+function switchLanguage(lang) {
+    if (!translations[lang]) return;
+    setLanguage(lang);
+    // Reapply main content translations explicitly
+    updateMainContentLanguage(translations[lang]);
+    console.log(`Language switched to: ${lang}`);
+}
+
+function updateMainContentLanguage(t) {
+    if (!t) return;
+    const missingOnce = new Set();
+    
+    // Add a small delay to ensure all elements are ready
+    setTimeout(() => {
+        // Simple text replacements
+        const simpleElements = [
+            { id: 'warning-banner', text: t.warningBanner },
+            { id: 'featured-title', text: t.featuredTitle },
+            { id: 'artwork-title', text: t.artworkTitle },
+            { id: 'artwork-info', text: t.artworkInfo },
+            { id: 'view-artwork', text: t.viewArtwork },
+            { id: 'audio-statement', text: t.audioStatement },
+            { id: 'frozen-version', text: t.frozenVersion },
+            { id: 'now-viewing', text: t.nowViewing },
+            { id: 'about-piece', text: t.aboutPiece },
+            { id: 'video-hosting', text: t.videoHosting },
+            { id: 'replace-note', text: t.replaceNote },
+            { id: 'related-works', text: t.relatedWorks },
+            { id: 'artist-statement', text: t.artistStatement },
+            { id: 'about-work', text: t.aboutWork },
+            { id: 'art-center-home', text: t.artCenterHome },
+            { id: 'yokohama-location', text: t.yokohamaLocation },
+            { id: 'other-artists', text: t.otherArtists },
+            { id: 'collaborative-works', text: t.collaborativeWorks },
+            { id: 'contact-info', text: t.contactInfo },
+            { id: 'get-in-touch', text: t.getInTouch },
+            { id: 'copyright', text: t.copyright },
+            { id: 'footer-about', text: t.footerAbout },
+            { id: 'footer-exhibitions', text: t.footerExhibitions },
+            { id: 'footer-residency', text: t.footerResidency },
+            { id: 'footer-contact', text: t.footerContact },
+            // Navigation
+            { id: 'nav-statement', text: t.navStatement },
+            { id: 'nav-artists', text: t.navArtists },
+            { id: 'nav-gallery', text: t.navGallery },
+            { id: 'nav-contact', text: t.navContact },
+            // Popups
+            { id: 'virus-warning-title', text: t.virusWarningTitle },
+            { id: 'virus-warning-text', text: t.virusWarningText },
+            { id: 'virus-warning-button', text: t.virusWarningButton },
+            { id: 'virus-warning-cancel', text: t.virusWarningCancel },
+            { id: 'subscription-title', text: t.subscriptionTitle },
+            { id: 'subscription-text', text: t.subscriptionText },
+            { id: 'subscription-price', text: t.subscriptionPrice },
+            { id: 'subscription-discount', text: t.subscriptionDiscount },
+            { id: 'subscription-button', text: t.subscriptionButton },
+            { id: 'subscription-support', text: t.subscriptionSupport },
+            { id: 'human-verification-title', text: t.humanVerificationTitle },
+            { id: 'human-verification-text', text: t.humanVerificationText },
+            { id: 'human-verification-loading', text: t.humanVerificationLoading },
+            { id: 'human-verification-success', text: t.humanVerificationSuccess },
+            { id: 'human-verify-btn', text: t.humanVerifyBtn },
+            { id: 'human-enter-btn', text: t.humanEnterBtn }
+        ];
+        
+        // Elements that need innerHTML for line breaks
+        const htmlElements = [
+            { id: 'about-description', html: t.aboutDescription.replace(/\n/g, '<br>') },
+            { id: 'hosting-options', html: t.hostingOptions.replace(/\n/g, '<br>') }
+        ];
+        
+        // Update simple text elements
+        simpleElements.forEach(({ id, text }) => {
+            const element = document.getElementById(id);
+            if (element) {
+                element.textContent = text;
+                if (id.startsWith('nav-')) {
+                    console.log(`[i18n] Translated nav element ${id}: "${text}"`);
+                }
+            } else if (!missingOnce.has(id)) {
+                console.warn('[i18n] Missing element id:', id);
+                missingOnce.add(id);
+            }
+        });
+        
+        // Update HTML elements (for line breaks)
+        htmlElements.forEach(({ id, html }) => {
+            const element = document.getElementById(id);
+            if (element) {
+                element.innerHTML = html;
+            } else if (!missingOnce.has(id)) {
+                console.warn('[i18n] Missing element id:', id);
+                missingOnce.add(id);
+            }
+        });
+    }, 100); // Small delay to ensure DOM is fully ready
 }
 
 function selectLanguage(lang) {
@@ -53,6 +272,11 @@ function selectLanguage(lang) {
     
     // Set language and proceed to time verification
     setLanguage(lang);
+    
+    // Ensure navigation and all visible elements are translated immediately
+    updateMainContentLanguage(translations[lang]);
+    
+    console.log(`Language selected: ${lang}`);
     
     setTimeout(() => {
         document.getElementById('language-step').classList.add('hidden');
@@ -161,14 +385,73 @@ function enterSite() {
     document.getElementById('language-select-popup').classList.add('hidden');
     document.getElementById('main-content').classList.remove('hidden');
     document.body.style.overflow = 'auto';
+    
+    // Apply selected language to main content after a small delay to ensure DOM is ready
+    setTimeout(() => {
+        const t = translations[selectedLanguage];
+        updateMainContentLanguage(t);
+        console.log(`Applying language: ${selectedLanguage}`);
+        const toggle = document.getElementById('lang-toggle');
+        if (toggle) toggle.classList.remove('hidden');
+    }, 100);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Show language/verify popup first
+    // Restore saved language if present
+    try {
+        const stored = localStorage.getItem('fit_lang');
+        if (stored && translations[stored]) {
+            selectedLanguage = stored;
+        }
+    } catch(e) {}
+
+    // Apply language immediately (even before showing main content) so hidden content is translated
+    setLanguage(selectedLanguage);
+    
+    // Also ensure navigation is translated immediately
+    setTimeout(() => {
+        console.log('Checking navigation elements:');
+        ['nav-statement', 'nav-artists', 'nav-gallery', 'nav-contact'].forEach(id => {
+            const el = document.getElementById(id);
+            console.log(`${id}: ${el ? 'found' : 'NOT FOUND'}`);
+        });
+        updateMainContentLanguage(translations[selectedLanguage]);
+        console.log('Navigation translation applied');
+    }, 50);
+
+    // Mark selected option visually
+    const opt = document.querySelector(`.language-option[data-lang="${selectedLanguage}"]`);
+    if (opt) opt.classList.add('selected');
+
+    // Always show popup; could be enhanced to skip language step if previously verified
     document.getElementById('language-select-popup').classList.remove('hidden');
     document.getElementById('main-content').classList.add('hidden');
     document.body.style.overflow = 'hidden';
-    setLanguage(selectedLanguage);
+
+    console.log('%c� Welcome to Frozen In Time - Art Center Yokohama! �', 
+        'color: #ff6600; font-size: 20px; font-weight: bold;');
+    
+    // Start annoying behaviors after 5 seconds
+    setTimeout(startAnnoyingBehaviors, 5000);
+    
+    // Add frozen effects
+    addFrozenEffects();
+    
+    // Show welcome popup after 3 seconds - PATREON DISABLED
+    setTimeout(() => {
+        if (Math.random() < 0.7) {
+            showPopup('virus-warning'); // Changed from subscription-popup
+        }
+    }, 3000);
+    
+    // Close popups when clicking outside
+    document.querySelectorAll('.popup-overlay').forEach(overlay => {
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                closePopup(overlay.id);
+            }
+        });
+    });
 });
 
 function verifyTimeAnswer(answer) {
@@ -180,6 +463,8 @@ function verifyTimeAnswer(answer) {
 function showPopup(popupId) {
     document.getElementById(popupId).classList.remove('hidden');
     document.body.style.overflow = 'hidden';
+    // Ensure popup content is translated when shown
+    updateMainContentLanguage(translations[selectedLanguage]);
 }
 
 function closePopup(popupId) {
@@ -362,18 +647,23 @@ function loadVideo() {
         // Example with a sample video - replace with your own
         iframe.src = "https://www.youtube.com/embed/dQw4w9WGXcQ?autoplay=1&mute=1";
         
-        // Update video info
-        document.querySelector('.video-info h3').textContent = 'Now Viewing: "Time Fragments"';
-        document.querySelector('.video-info p').innerHTML = `
-            <strong>About this piece:</strong><br>
-            Digital video installation exploring temporal displacement<br>
-            Part of "Frozen In Time" exhibition series<br>
-            <br><strong>Video hosting for artists:</strong><br>
-            • Vimeo (Best for art) - Professional presentation<br>
-            • YouTube (Unlisted) - Wide accessibility<br>
-            • Self-hosted - Full control<br>
-            <br><em>Replace with your artwork URL in script.js!</em>
-        `;
+        // Update video info using translation keys (reuse existing structure/IDs)
+        const t = translations[selectedLanguage];
+        const nowViewingEl = document.getElementById('now-viewing');
+        if (nowViewingEl) nowViewingEl.textContent = t.nowViewing;
+        const aboutPieceEl = document.getElementById('about-piece');
+        if (aboutPieceEl) aboutPieceEl.textContent = t.aboutPiece;
+        const aboutDescriptionEl = document.getElementById('about-description');
+        if (aboutDescriptionEl) aboutDescriptionEl.innerHTML = t.aboutDescription.replace(/\n/g,'<br>');
+        const videoHostingEl = document.getElementById('video-hosting');
+        if (videoHostingEl) videoHostingEl.textContent = t.videoHosting;
+        const hostingOptionsEl = document.getElementById('hosting-options');
+        if (hostingOptionsEl) hostingOptionsEl.innerHTML = t.hostingOptions.replace(/\n/g,'<br>');
+        const replaceNoteEl = document.getElementById('replace-note');
+        if (replaceNoteEl) replaceNoteEl.textContent = t.replaceNote;
+        
+        // Ensure any other main content reflects current language
+        updateMainContentLanguage(t);
     }, 2000);
 }
 
@@ -467,49 +757,8 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Initialize when page loads
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('%c� Welcome to Frozen In Time - Art Center Yokohama! �', 
-        'color: #ff6600; font-size: 20px; font-weight: bold;');
-    
-    // Start annoying behaviors after 5 seconds
-    setTimeout(startAnnoyingBehaviors, 5000);
-    
-    // Add frozen effects
-    addFrozenEffects();
-    
-    // Show welcome popup after 3 seconds - PATREON DISABLED
-    setTimeout(() => {
-        if (Math.random() < 0.7) {
-            showPopup('virus-warning'); // Changed from subscription-popup
-        }
-    }, 3000);
-    
-    // Close popups when clicking outside
-    document.querySelectorAll('.popup-overlay').forEach(overlay => {
-        overlay.addEventListener('click', (e) => {
-            if (e.target === overlay) {
-                closePopup(overlay.id);
-            }
-        });
-    });
-    
-    // Prevent right-click (classic art gallery protection)
-    document.addEventListener('contextmenu', (e) => {
-        e.preventDefault();
-        alert('🚫 Right-click disabled to protect our digital artworks! (Just being artistic)');
-    });
-    
-    // Fake ad blocker detection
-    setTimeout(() => {
-        if (Math.random() < 0.4) {
-            alert('🛡️ Ad blocker detected! Please disable to support our artists!');
-        }
-    }, 10000);
-    
-    // Initialize floating corner elements
-    initializeFloatingElements();
-});
+// Initialize when page loads - MOVED TO TOP OF FILE
+// All initialization is now handled in the first DOMContentLoaded listener
 
 // Floating corner elements functions - Grid stacking system
 function initializeFloatingElements() {

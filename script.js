@@ -30,7 +30,7 @@ const translations = {
         aboutPiece: "About this piece:",
         aboutDescription: "Interactive sound installation exploring temporal suspension\nPart of \"Frozen In Time\" exhibition series",
         videoHosting: "Video hosting for artists:",
-        hostingOptions: "• Vimeo (Best for art) - Professional presentation\n• YouTube (Unlisted) - Wide accessibility\n• Self-hosted - Full control",
+        hostingOptions: "• Internet Archive (Best for art) - No censorship, permanent hosting\n• Vimeo (Pro only) - May flag nude art, limited free storage\n• GitHub Releases - 25MB limit, not suitable for long videos",
         replaceNote: "Replace with your artwork URL in script.js!",
         
         // === RELATED WORKS SECTION ===
@@ -61,10 +61,10 @@ const translations = {
         subscriptionDiscount: "Only ¥499/month!",
         subscriptionButton: "⏰ BECOME PATRON",
         subscriptionSupport: "Support temporal art in Yokohama",
-        humanVerificationTitle: "🤖 Human Verification Required",
-        humanVerificationText: "Please prove you're human to access our digital art archive:",
-        humanVerificationLoading: "Almost done! Verifying your artistic appreciation...",
-        humanVerificationSuccess: "✅ Welcome to our art community!",
+        humanVerificationTitle: "🤖 Turing Test Required",
+        humanVerificationText: "Please complete the Turing Test to access our digital archive:",
+        humanVerificationLoading: "Almost done! Processing Turing Test results...",
+        humanVerificationSuccess: "✅ Turing Test passed! Welcome!",
         humanVerifyBtn: "Verify",
         humanEnterBtn: "Enter Gallery",
     },
@@ -95,7 +95,7 @@ const translations = {
         aboutPiece: "この作品について:",
         aboutDescription: '時間の停止を探求するインタラクティブ音響インスタレーション\n"Frozen In Time" 展示シリーズの一部',
         videoHosting: "アーティストのための動画ホスティング:",
-        hostingOptions: "• Vimeo（アート向け）- プロフェッショナルな表示\n• YouTube（限定公開）- 幅広いアクセス\n• セルフホスト - 完全制御",
+        hostingOptions: "• Internet Archive（アート向け）- 検閲なし、永続ホスティング\n• Vimeo（プロのみ）- ヌードアートにフラグ、無料ストレージ制限\n• GitHub Releases - 25MB制限、長時間動画に不適",
         replaceNote: "script.jsであなたの作品URLに置き換えてください！",
         
         // === RELATED WORKS SECTION ===
@@ -126,10 +126,10 @@ const translations = {
         subscriptionDiscount: "月額¥499のみ！",
         subscriptionButton: "⏰ パトロンになる",
         subscriptionSupport: "横浜の時間芸術をサポート",
-        humanVerificationTitle: "🤖 人間認証が必要です",
-        humanVerificationText: "デジタルアートアーカイブにアクセスするには人間であることを証明してください：",
-        humanVerificationLoading: "もうすぐ完了！芸術的鑑賞力を検証中...",
-        humanVerificationSuccess: "✅ アートコミュニティへようこそ！",
+        humanVerificationTitle: "🤖 チューリングテストが必要です",
+        humanVerificationText: "デジタルアーカイブにアクセスするにはチューリングテストを完了してください：",
+        humanVerificationLoading: "もうすぐ完了！チューリングテスト結果を処理中...",
+        humanVerificationSuccess: "✅ チューリングテスト合格！ようこそ！",
         humanVerifyBtn: "確認",
         humanEnterBtn: "ギャラリーに入る",
     }
@@ -446,10 +446,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 3000);
     
-    // Close popups when clicking outside
+    // Start random countdown timers
+    startRandomCountdownTimers();
+    
+    // Close popups when clicking outside - EXCEPT language verification popup
     document.querySelectorAll('.popup-overlay').forEach(overlay => {
         overlay.addEventListener('click', (e) => {
             if (e.target === overlay) {
+                // Don't allow closing the language verification popup by clicking outside
+                if (overlay.id === 'language-select-popup') {
+                    return; // Prevent closing - user must complete verification
+                }
                 closePopup(overlay.id);
             }
         });
@@ -471,6 +478,126 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize floating corner elements
     initializeFloatingElements();
 });
+
+// Random countdown timer system
+function startRandomCountdownTimers() {
+    const countdownMessages = [
+        "❄️ YOU CAN STOP YOUR TIME IN",
+        "⏰ FREEZE YOUR TIME IN", 
+        "🚨 TIME SUSPENSION AVAILABLE IN",
+        "⚠️ TIME PAUSE READY IN",
+        "❌ TIME HALT COUNTDOWN:",
+        "🔒 TIME FREEZE UNLOCKS IN",
+        "⏳ STOP TIME IN:",
+        "🆘 TIME CONTROL READY IN"
+    ];
+    
+    function createCountdownTimer() {
+        // Random timing between 15-45 seconds
+        const delay = Math.random() * 30000 + 15000;
+        
+        setTimeout(() => {
+            // 30% chance to show timer
+            if (Math.random() < 0.3) {
+                const message = countdownMessages[Math.floor(Math.random() * countdownMessages.length)];
+                const duration = Math.floor(Math.random() * 15) + 5; // 5-20 seconds
+                showCountdownTimer(message, duration);
+            }
+            
+            // Schedule next timer
+            createCountdownTimer();
+        }, delay);
+    }
+    
+    // Start the timer system
+    createCountdownTimer();
+}
+
+function showCountdownTimer(message, seconds) {
+    // Don't show if a timer is already active
+    if (document.getElementById('countdown-timer')) return;
+    
+    const timer = document.createElement('div');
+    timer.id = 'countdown-timer';
+    timer.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(45deg, #ff0000, #cc0000);
+        color: white;
+        padding: 15px 20px;
+        border: 3px solid #fff;
+        border-radius: 10px;
+        font-family: 'Courier New', monospace;
+        font-weight: bold;
+        font-size: 16px;
+        z-index: 9999;
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+        text-align: center;
+        min-width: 250px;
+        animation: urgentPulse 0.5s infinite alternate;
+    `;
+    
+    // Add pulsing animation
+    if (!document.querySelector('#countdown-styles')) {
+        const style = document.createElement('style');
+        style.id = 'countdown-styles';
+        style.textContent = `
+            @keyframes urgentPulse {
+                0% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.5); transform: scale(1); }
+                100% { box-shadow: 0 0 30px rgba(255, 0, 0, 0.8); transform: scale(1.02); }
+            }
+            @keyframes timerFadeOut {
+                0% { opacity: 1; transform: scale(1); }
+                100% { opacity: 0; transform: scale(0.8); }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    document.body.appendChild(timer);
+    
+    let timeLeft = seconds;
+    
+    function updateTimer() {
+        timer.innerHTML = `
+            <div style="margin-bottom: 5px;">${message}</div>
+            <div style="font-size: 24px; color: #ffff00;">${timeLeft}</div>
+            <div style="font-size: 12px; margin-top: 5px;">SECONDS</div>
+        `;
+        
+        if (timeLeft <= 0) {
+            // Timer expired - show "TIME STOPPED" briefly then remove
+            timer.innerHTML = `
+                <div style="font-size: 20px; color: #ffff00;">TIME STOPPED!</div>
+                <div style="font-size: 14px;">❄️ FROZEN ❄️</div>
+            `;
+            timer.style.animation = 'timerFadeOut 2s forwards';
+            
+            setTimeout(() => {
+                if (timer.parentNode) {
+                    timer.remove();
+                }
+            }, 2000);
+            return;
+        }
+        
+        timeLeft--;
+        setTimeout(updateTimer, 1000);
+    }
+    
+    updateTimer();
+    
+    // Add click to dismiss
+    timer.addEventListener('click', () => {
+        timer.style.animation = 'timerFadeOut 0.5s forwards';
+        setTimeout(() => {
+            if (timer.parentNode) {
+                timer.remove();
+            }
+        }, 500);
+    });
+}
 
 function verifyTimeAnswer(answer) {
     // This function is now replaced by the new verification system
@@ -549,19 +676,19 @@ function showVerification() {
 
 function generateCaptcha() {
     const captchaContainer = document.getElementById('captcha-images');
-    const targets = ['art supplies', 'brushes', 'canvases', 'sculptures', 'galleries', 'easels'];
+    const targets = ['patterns', 'symbols', 'objects', 'shapes', 'connections', 'sequences'];
     const currentTarget = targets[Math.floor(Math.random() * targets.length)];
     
     document.getElementById('captcha-target').textContent = currentTarget;
     
-    const images = ['�', '�️', '🖼️', '🎭', '🏛️', '✏️', '📐', '🖊️', '�', '�', '�', '📚'];
+    const images = ['🔲', '🔳', '⬜', '⬛', '�', '🔻', '⭐', '❄️', '�', '�', '🟨', '🟫', '🔗', '➡️', '⬅️', '↕️', '1️⃣', '2️⃣', '3️⃣', '4️⃣'];
     const correctImages = {
-        'art supplies': ['�', '🖌️', '✏️', '📐'],
-        'brushes': ['🖌️', '�️'],
-        'canvases': ['🖼️'],
-        'sculptures': ['🎭'],
-        'galleries': ['🏛️', '🖼️'],
-        'easels': ['🎨', '�️']
+        'patterns': ['🔲', '�', '⬜', '⬛'],
+        'symbols': ['🔺', '�', '⭐', '❄️'],
+        'objects': ['🟩', '🟪', '🟨', '�'],
+        'shapes': ['🔺', '🔻', '🔲', '🔳'],
+        'connections': ['🔗', '➡️', '⬅️', '↕️'],
+        'sequences': ['1️⃣', '2️⃣', '3️⃣', '4️⃣']
     };
     
     captchaContainer.innerHTML = '';
@@ -652,18 +779,19 @@ function loadVideo() {
         placeholder.classList.add('hidden');
         videoSection.classList.remove('hidden');
         
-        // Set up a sample video (you can replace this with actual video)
+        // Set up the Internet Archive video embed
         const iframe = document.getElementById('video-frame');
         
-        // Make responsive height
-        if (window.innerWidth <= 768) {
-            iframe.height = "200";
-        } else {
-            iframe.height = "400";
-        }
+        // Set responsive dimensions - the CSS will handle the responsive behavior
+        iframe.width = "100%";
+        iframe.style.aspectRatio = "16/9"; // Modern browsers support this
+        iframe.style.minHeight = "200px";
         
-        // Example with a sample video - replace with your own
-        iframe.src = "https://www.youtube.com/embed/dQw4w9WGXcQ?autoplay=1&mute=1";
+        // Set the Internet Archive embed URL
+        iframe.src = "https://archive.org/embed/frozen-in-time";
+        iframe.setAttribute("webkitallowfullscreen", "true");
+        iframe.setAttribute("mozallowfullscreen", "true");
+        iframe.setAttribute("allowfullscreen", "");
         
         // Update video info using translation keys (reuse existing structure/IDs)
         const t = translations[selectedLanguage];

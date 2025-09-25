@@ -63,18 +63,14 @@ nav {
     justify-content: center;
 }
 
-nav a {
-    color: #ffcc66;
-    text-decoration: underline;
+nav span {
+    color: #999; /* Grayed out to show disabled */
+    text-decoration: none; /* Remove underline */
     font-size: 14px;
     padding: 5px;
-    border: 1px solid #666;
-    background: #222;
-}
-
-nav a:hover {
-    background: #ff6600;
-    color: #fff;
+    border: 1px solid #333; /* Darker border */
+    background: #111; /* Darker background */
+    cursor: default; /* Remove pointer cursor */
 }
 
 /* Warning banner - classic sketchy site style */
@@ -118,6 +114,44 @@ nav a:hover {
     border: 2px solid #ff6600;
     padding: 15px;
     margin-bottom: 20px;
+}
+
+/* Responsive video iframe styles */
+#video-frame {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    min-height: 200px;
+    max-width: 100%;
+    border: none;
+}
+
+@media (max-width: 480px) {
+    #video-frame {
+        min-height: 180px;
+        aspect-ratio: 16/9;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    #video-frame {
+        min-height: 250px;
+        aspect-ratio: 16/9;
+    }
+}
+
+@media (min-width: 769px) {
+    #video-frame {
+        min-height: 350px;
+        aspect-ratio: 16/9;
+    }
+}
+
+@media (min-width: 1200px) {
+    #video-frame {
+        min-height: 400px;
+        aspect-ratio: 16/9;
+    }
 }
 
 .video-placeholder {
@@ -241,14 +275,11 @@ nav a:hover {
     background: #222;
     border: 1px solid #ff6600;
     padding: 15px;
-    cursor: pointer;
+    cursor: default; /* Remove pointer cursor */
     text-align: center;
 }
 
-.video-card:hover {
-    background: #333;
-    border-color: #ffaa44;
-}
+/* Removed hover effect - no interaction needed */
 
 .thumbnail {
     font-size: 30px;
@@ -298,8 +329,11 @@ nav a:hover {
     align-items: center;
     z-index: 1000;
     padding: 20px;
-    /* Allow background interaction on mobile by not blocking pointer events on overlay */
-    pointer-events: none;
+}
+
+/* Special handling for language verification popup - must complete */
+#language-select-popup {
+    pointer-events: auto; /* Always block background interaction for verification */
 }
 
 .popup {
@@ -568,21 +602,20 @@ nav a:hover {
     flex-wrap: wrap;
 }
 
-.footer-links a {
-    color: #ffcc66;
-    text-decoration: underline;
+.footer-links span {
+    color: #999; /* Grayed out */
+    text-decoration: none; /* Remove underline */
     font-size: 11px;
+    cursor: default; /* Remove pointer cursor */
 }
 
 @media (min-width: 768px) {
-    .footer-links a {
+    .footer-links span {
         font-size: 13px;
     }
 }
 
-.footer-links a:hover {
-    color: #ff6600;
-}
+/* Removed hover effect for footer links */
 
 /* Utility classes */
 .hidden {

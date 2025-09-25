@@ -45,6 +45,7 @@
             <div class="popup-header">
                 <i class="fas fa-clock"></i>
                 <span id="verify-header-text">🤖 Time Verification Required</span>
+                <!-- Remove close button from verification popup - must complete -->
             </div>
             <div class="popup-content">
                 <div id="language-step" class="verification-step">
@@ -135,7 +136,7 @@
                     <div class="loading-bar">
                         <div class="loading-progress" id="verification-progress"></div>
                     </div>
-                    <p id="verification-status">Analyzing aesthetic preferences...</p>
+                    <p id="verification-status">Running Turing Test protocols...</p>
                 </div>
                 <div id="verification-complete" class="verification-step hidden">
                     <p id="human-verification-success">✅ Welcome to our art community!</p>
@@ -151,12 +152,15 @@
                 <h1>❄️ Frozen In Time</h1>
                 <span class="tagline">Motoki Watanabe</span>
             </div>
+            <!-- Navigation temporarily hidden -->
+            <!-- 
             <nav>
-                <a href="#" onclick="randomPopup()" id="nav-statement">Statement</a>
-                <a href="#" onclick="showVerification()" id="nav-artists">Artists</a>
-                <a href="#" onclick="randomPopup()" id="nav-gallery">Gallery</a>
-                <a href="#" onclick="fakeDownload()" id="nav-contact">Contact</a>
+                <span id="nav-statement">Statement</span>
+                <span id="nav-artists">Artists</span>
+                <span id="nav-gallery">Gallery</span>
+                <span id="nav-contact">Contact</span>
             </nav>
+            -->
         </div>
     </header>
 
@@ -186,7 +190,7 @@
                         </div>
                     </div>
                     <div id="actual-video" class="hidden">
-                        <iframe id="video-frame" width="100%" height="300" frameborder="0" allowfullscreen></iframe>
+                        <iframe id="video-frame" width="100%" height="300" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen=""></iframe>
                         <div class="video-info">
                             <h3 id="now-viewing">Now Viewing: "Frozen In Time"</h3>
                             <p><strong id="about-piece">About this piece:</strong><br>
@@ -202,43 +206,49 @@
                 </div>
             </section>
 
+            <!-- Related works section temporarily hidden -->
+            <!-- 
             <section class="video-suggestions">
                 <h3 id="related-works">Related Works & Artists</h3>
                 <div class="video-grid">
-                    <div class="video-card" onclick="randomPopup()">
+                    <div class="video-card">
                         <div class="thumbnail">📝</div>
                         <h4 id="artist-statement">Artist Statement</h4>
                         <p id="about-work">About the work</p>
                     </div>
-                    <div class="video-card" onclick="showVerification()">
+                    <div class="video-card">
                         <div class="thumbnail">❄️</div>
                         <h4 id="art-center-home">Art Center Home</h4>
                         <p id="yokohama-location">Yokohama location</p>
                     </div>
-                    <div class="video-card" onclick="randomPopup()">
+                    <div class="video-card">
                         <div class="thumbnail">🎤</div>
                         <h4 id="other-artists">Other Artists</h4>
                         <p id="collaborative-works">Collaborative works</p>
                     </div>
-                    <div class="video-card" onclick="fakeDownload()">
+                    <div class="video-card">
                         <div class="thumbnail">⏰</div>
                         <h4 id="contact-info">Contact Info</h4>
                         <p id="get-in-touch">Get in touch</p>
                     </div>
                 </div>
             </section>
+            -->
         </div>
     </main>
 
     <footer class="pirate-footer">
         <div class="container">
             <p id="copyright">© 2024 Frozen In Time</p>
+            <!-- Footer links temporarily hidden -->
+            <!-- 
             <div class="footer-links">
-                <a href="#" onclick="randomPopup()" id="footer-about">About</a>
-                <a href="#" onclick="randomPopup()" id="footer-exhibitions">Exhibitions</a>
-                <a href="#" onclick="randomPopup()" id="footer-residency">Residency</a>
-                <a href="#" onclick="randomPopup()" id="footer-contact">Contact</a>
+                <span id="footer-about">About</span>
+                <span id="footer-exhibitions">Exhibitions</span>
+                <span id="footer-residency">Residency</span>
+                <span id="footer-contact">Contact</span>
             </div>
+            -->
         </div>
     </footer>
 

@@ -19,11 +19,9 @@ const translations = {
         // === MAIN PAGE CONTENT ===
         warningBanner: "❄️ Warning: Temporal art archive. Content may freeze your perception of time. ⏰",
         featuredTitle: "⏰ Featured Digital Art Piece",
-        artworkTitle: '"Frozen In Time" - Interactive Sound Installation',
-        artworkInfo: "Artist: [Your Name] | Duration: 12:34 | Year: 2024",
-        viewArtwork: "VIEW ARTWORK",
-        audioStatement: "AUDIO STATEMENT",
-        frozenVersion: "FROZEN VERSION",
+        artworkTitle: 'TMRとめられ',
+        artworkInfo: "Artist: [Your Name] | Duration: 10:54 | Year: 2025",
+        viewArtwork: "VIEW",
         
         // === VIDEO INFO SECTION ===
         nowViewing: 'Now Viewing: "Frozen In Time"',
@@ -84,11 +82,9 @@ const translations = {
         // === MAIN PAGE CONTENT ===
         warningBanner: "❄️ 警告: 時間芸術アーカイブ。コンテンツは時間の知覚を凍結する可能性があります。⏰",
         featuredTitle: "⏰ 注目のデジタルアート作品",
-        artworkTitle: '「Frozen In Time」- インタラクティブ音響インスタレーション',
-        artworkInfo: "アーティスト: [Your Name] | 長さ: 12:34 | 年: 2024",
-        viewArtwork: "作品を見る",
-        audioStatement: "音声ステートメント",
-        frozenVersion: "フローズンバージョン",
+        artworkTitle: 'TMRとめられ',
+        artworkInfo: "長さ: 10:54 | 年: 2025",
+        viewArtwork: "プレイ",
         
         // === VIDEO INFO SECTION ===
         nowViewing: '現在視聴中: "Frozen In Time"',
@@ -184,8 +180,6 @@ function updateMainContentLanguage(t) {
             { id: 'artwork-title', text: t.artworkTitle },
             { id: 'artwork-info', text: t.artworkInfo },
             { id: 'view-artwork', text: t.viewArtwork },
-            { id: 'audio-statement', text: t.audioStatement },
-            { id: 'frozen-version', text: t.frozenVersion },
             { id: 'now-viewing', text: t.nowViewing },
             { id: 'about-piece', text: t.aboutPiece },
             { id: 'video-hosting', text: t.videoHosting },
@@ -779,7 +773,7 @@ function loadVideo() {
         placeholder.classList.add('hidden');
         videoSection.classList.remove('hidden');
         
-        // Set up the Internet Archive video embed
+        // Set up the YouTube video embed
         const iframe = document.getElementById('video-frame');
         
         // Set responsive dimensions - the CSS will handle the responsive behavior
@@ -787,11 +781,11 @@ function loadVideo() {
         iframe.style.aspectRatio = "16/9"; // Modern browsers support this
         iframe.style.minHeight = "200px";
         
-        // Set the Internet Archive embed URL
-        iframe.src = "https://archive.org/embed/frozen-in-time";
-        iframe.setAttribute("webkitallowfullscreen", "true");
-        iframe.setAttribute("mozallowfullscreen", "true");
+        // Set the YouTube embed URL (converted from share link)
+        iframe.src = "https://www.youtube.com/embed/00kpkgGSmiE?si=8EKO4Tba1cn-I9F";
         iframe.setAttribute("allowfullscreen", "");
+        iframe.setAttribute("frameborder", "0");
+        iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share");
         
         // Update video info using translation keys (reuse existing structure/IDs)
         const t = translations[selectedLanguage];

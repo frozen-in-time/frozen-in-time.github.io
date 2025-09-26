@@ -190,24 +190,31 @@ nav span {
 .play-btn {
     background: #ff6600;
     color: #fff;
-    border: 2px solid #cc4400;
+    border: 3px solid #cc4400;
     padding: 10px 20px;
     font-size: 14px;
     cursor: pointer;
     margin: 10px 5px;
     font-weight: bold;
     text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 @media (min-width: 768px) {
     .play-btn {
         font-size: 16px;
         padding: 12px 25px;
+        box-shadow: 0 0 15px rgba(255, 102, 0, 0.6);
     }
 }
 
 .play-btn:hover {
-    background: #cc4400;
+    background: #ff7722;
+    border-color: #ee5500;
+    box-shadow: 0 0 20px rgba(255, 102, 0, 0.8);
+    transform: scale(1.05);
 }
 
 .fake-download-buttons {

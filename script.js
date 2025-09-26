@@ -24,9 +24,7 @@ const translations = {
         viewArtwork: "VIEW",
         
         // === VIDEO INFO SECTION ===
-        nowViewing: 'Now Viewing: "Frozen In Time"',
-        aboutPiece: "About this piece:",
-        aboutDescription: "Interactive sound installation exploring temporal suspension\nPart of \"Frozen In Time\" exhibition series",
+        nowViewing: 'Now Viewing: "TMRとめられ"',
         videoHosting: "Video hosting for artists:",
         hostingOptions: "• Internet Archive (Best for art) - No censorship, permanent hosting\n• Vimeo (Pro only) - May flag nude art, limited free storage\n• GitHub Releases - 25MB limit, not suitable for long videos",
         replaceNote: "Replace with your artwork URL in script.js!",
@@ -87,9 +85,7 @@ const translations = {
         viewArtwork: "プレイ",
         
         // === VIDEO INFO SECTION ===
-        nowViewing: '現在視聴中: "Frozen In Time"',
-        aboutPiece: "この作品について:",
-        aboutDescription: '時間の停止を探求するインタラクティブ音響インスタレーション\n"Frozen In Time" 展示シリーズの一部',
+        nowViewing: '現在視聴中: "TMRとめられ"',
         videoHosting: "アーティストのための動画ホスティング:",
         hostingOptions: "• Internet Archive（アート向け）- 検閲なし、永続ホスティング\n• Vimeo（プロのみ）- ヌードアートにフラグ、無料ストレージ制限\n• GitHub Releases - 25MB制限、長時間動画に不適",
         replaceNote: "script.jsであなたの作品URLに置き換えてください！",
@@ -181,7 +177,6 @@ function updateMainContentLanguage(t) {
             { id: 'artwork-info', text: t.artworkInfo },
             { id: 'view-artwork', text: t.viewArtwork },
             { id: 'now-viewing', text: t.nowViewing },
-            { id: 'about-piece', text: t.aboutPiece },
             { id: 'video-hosting', text: t.videoHosting },
             { id: 'replace-note', text: t.replaceNote },
             { id: 'related-works', text: t.relatedWorks },
@@ -224,7 +219,6 @@ function updateMainContentLanguage(t) {
         
         // Elements that need innerHTML for line breaks
         const htmlElements = [
-            { id: 'about-description', html: t.aboutDescription.replace(/\n/g, '<br>') },
             { id: 'hosting-options', html: t.hostingOptions.replace(/\n/g, '<br>') }
         ];
         
@@ -791,10 +785,7 @@ function loadVideo() {
         const t = translations[selectedLanguage];
         const nowViewingEl = document.getElementById('now-viewing');
         if (nowViewingEl) nowViewingEl.textContent = t.nowViewing;
-        const aboutPieceEl = document.getElementById('about-piece');
-        if (aboutPieceEl) aboutPieceEl.textContent = t.aboutPiece;
-        const aboutDescriptionEl = document.getElementById('about-description');
-        if (aboutDescriptionEl) aboutDescriptionEl.innerHTML = t.aboutDescription.replace(/\n/g,'<br>');
+        
         const videoHostingEl = document.getElementById('video-hosting');
         if (videoHostingEl) videoHostingEl.textContent = t.videoHosting;
         const hostingOptionsEl = document.getElementById('hosting-options');
